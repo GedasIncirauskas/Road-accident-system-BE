@@ -6,6 +6,7 @@ const logger = require('../logger.js');
 
 const auth = require('./routes/v1/auth.js');
 const accident = require('./routes/v1/accident.js');
+const statistic = require('./routes/v1/statistic.js');
 
 const app = express();
 app.use(express.json());
@@ -15,6 +16,7 @@ app.use('/static', express.static('files'));
 
 app.use('/', auth);
 app.use('/v1/', accident);
+app.use('/v1/', statistic);
 
 app.all('*', (req, res) => {
   return res.status(404).send({ msg: 'Page not found' });
