@@ -28,7 +28,7 @@ router.post('/accident', async (req, res) => {
 router.post('/upload', (req, res) => {
   const newpath = __dirname + '/../../../files/';
   const file = req.files.file;
-  const filename = file.name;
+  const filename = file.name + 1;
 
   file.mv(`${newpath}${filename}`, (err) => {
     if (err) {
