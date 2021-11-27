@@ -9,9 +9,8 @@ router.get('/statistic', loggedIn, async (req, res) => {
   try {
     const con = await mysql.createConnection(dbConfig);
     const query = `
-      SELECT *
+      SELECT id_accident, user, description, time, status
       FROM accident
-      WHERE status = 0
     `;
     const [data] = await con.execute(query);
     await con.end();
