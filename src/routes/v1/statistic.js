@@ -11,6 +11,7 @@ router.get('/statistic', loggedIn, async (req, res) => {
     const query = `
       SELECT id_accident, user, description, time, status
       FROM accident
+      ORDER BY time DESC
     `;
     const [data] = await con.execute(query);
     await con.end();
