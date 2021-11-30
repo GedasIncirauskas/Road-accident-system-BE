@@ -14,7 +14,7 @@ router.post('/accident', async (req, res) => {
   try {
     const con = await mysql.createConnection(dbConfig);
     const query = `
-      INSERT INTO accident (user, description, lat, lng)
+      INSERT INTO accident (user, description, file, lat, lng)
       VALUES (${mysql.escape(user)}, ${mysql.escape(description)},  ${mysql.escape(file)}, ${mysql.escape(lat)}, ${mysql.escape(lng)})`;
     const [data] = await con.execute(query);
     await con.end();
