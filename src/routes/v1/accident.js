@@ -44,7 +44,7 @@ router.get('/accident', async (req, res) => {
   try {
     const con = await mysql.createConnection(dbConfig);
     const query = `
-      SELECT id_accident, user, description, lat, lng, status, time
+      SELECT id_accident, user, description, file, lat, lng, status, time
       FROM accident
       WHERE status = 0
     `;
