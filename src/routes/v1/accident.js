@@ -24,27 +24,12 @@ router.post('/accident', async (req, res) => {
   }
 });
 
-//Upload photo
-// router.post('/upload', (req, res) => {
-//   const newpath = __dirname + '/../../../files/';
-//   const file = req.files.file;
-//   const filename = file.name + 1;
-
-//   file.mv(`${newpath}${filename}`, (err) => {
-//     if (err) {
-//       res.status(500).send({ message: 'File upload failed' });
-//       return;
-//     }
-//     res.status(200).send({ message: 'File Uploaded', code: 200, path: `/static/${filename}` });
-//   });
-// });
-
 //Get all accident
 router.get('/accident', async (req, res) => {
   try {
     const con = await mysql.createConnection(dbConfig);
     const query = `
-      SELECT *
+      SELECT id_accident, user, description, lat, lng, status, time
       FROM accident
       WHERE status = 0
     `;
