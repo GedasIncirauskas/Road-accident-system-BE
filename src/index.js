@@ -10,7 +10,7 @@ const statistic = require('./routes/v1/statistic.js');
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors({origin: '*'}));
 app.use(fileupload());
 app.use('/static', express.static('files'));
 
